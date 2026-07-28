@@ -37,7 +37,7 @@ Kullanıcıyı Gruptan Çıkarma
 cat /etc/shadow ==> Mevcut Kullanılar görtüntülenir. 
 cat /etc/group  ==> Mevcut Gruplar görtüntülenir. 
 
-Yetkili Kullanıcı Ve Sudo Komudunu Çalıştırabilen Kullanıcıların bulunduğu config dosyasına Aşağıdaki komud aracılığı iler erişilir.
+Yetkili Kullanıcı Ve Sudo Komudunu Çalıştırabilen Kullanıcıların bulunduğu config dosyasına Aşağıdaki komut aracılığı ile erişilir.
 
 ```
 ┌──(root㉿kali)-[~]
