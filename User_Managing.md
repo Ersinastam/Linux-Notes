@@ -37,5 +37,22 @@ Kullanıcıyı Gruptan Çıkarma
 cat /etc/shadow ==> Mevcut Kullanılar görtüntülenir. 
 cat /etc/group  ==> Mevcut Gruplar görtüntülenir. 
 
+Yetkili Kullanıcı Ve Sudo Komudunu Çalıştırabilen Kullanıcıların bulunduğu config dosyasına Aşağıdaki komud aracılığı iler erişilir.
+
+```
+┌──(root㉿kali)-[~]
+└─# visudo 
+
+# User privilege specification 
+root    ALL=(ALL:ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "@include" directives:
+
+```
+
+
 
 
