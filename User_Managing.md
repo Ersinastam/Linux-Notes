@@ -30,7 +30,7 @@ Kullanıcıyı Gruba Dahil Etme
 Kullanıcıyı Gruptan Çıkarma
 ```
 ┌──(root㉿kali)-[~]
-└─# passwd -d Ahmet Security 
+└─# gpasswd -d Ahmet Security 
 
 ```
 
