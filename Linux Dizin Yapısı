@@ -1,70 +1,392 @@
-## Kök Dizin
-Linux dizin yapısının en tepesinde sadece bir eğik çizgi (/) bulunur
-Buna Root (Kök) dizini denir.
-Linuxtaki tüm dosyaları içersinde bulundurur.
+# 📂 Linux Dizin Yapısı
 
-##  /bin Dizini
-“Binaries” kelimesinin kısaltması olan bu dizin, sistemin çalışması için olmazsa olmaz olan temel komut dosyalarını içerir.Hem sistem yöneticisi (root) hem de normal kullanıcılar buradaki komutları kullanabilir.
-'ls' ,'cp ' ,'mv ' ,'cat' gibi hem root hem de diğer kullanıcıların çalıştırabileceği komutların bulunduran dosyadır.
+Linux'ta her şey **kök dizin ( / )** altında bulunur. Tüm dosya ve dizinler bu yapının içerisinde yer alır.
 
-##  /sbin Dizini
-“System Binaries” anlamına gelir. /bin dizininden farkı, buradaki komutların genellikle sadece root (sistem yöneticisi) yetkisiyle çalıştırılması gereken, sistemi yapılandıran kritik araçlar olmasıdır.
+---
 
-iptables (güvenlik duvarı), fdisk (disk bölümlendirme), reboot (yeniden başlatma) gibi diğer kullanıcıların çalıştıramayacağı komutları barındırır.
+# 📌 /
 
-##  /etc Dizini
-sistem yapılandırma dosyalarını içeren dizindir.
+## Kök (Root) Dizini
 
-/etc/shadow = Kullanıcı şifrelerinin bulunduğu kısım
-/etc/ssh/ssh_config = ssh konfigurasyonunun olduğ dosyadır.
-/etc/dhcp/dhcpclient-exit-hooks.d = dhcp Konfigurasyonunun olduğ dosyadır.
+Linux dosya sisteminin en üst seviyesidir.
 
-/root Dizini
-Normal kullanıcıların evi /home altındayken, sistemin en yetkili kullanıcısı olan root kullanıcısının evi doğrudan kök dizin altındaki /root klasörüdür. Güvenlik gerekçesiyle diğer kullanıcılardan tamamen izole edilmiştir.
+- Sadece `/` karakteri ile gösterilir.
+- Sistemdeki tüm dosya ve dizinler bunun altında bulunur.
+- Windows'taki `C:\` sürücüsüne benzetilebilir ancak Linux'ta tek bir kök dizin vardır.
 
-/var Dizini
-Variable” (Değişken) kelimesinden gelir. Sistem çalıştıkça boyutu değişen, sürekli veri eklenen dosyalar burada tutulur.
+---
 
-/var/log: Sistemin tüm günlük (log) kayıtları. (Hata analizi için ilk bakılan yer).
-/var/mail: Gelen e-postalar.
-/var/www: Web sunucusu dosyaları.
+# 📌 /bin
 
+## Temel Kullanıcı Komutları
 
-/tmp Dizini
+**bin**, **Binaries** kelimesinin kısaltmasıdır.
 
-istemin veya uygulamaların geçici olarak ihtiyaç duyduğu dosyaları sakladığı yerdir.
-Genellikle bilgisayar her yeniden başlatıldığında bu klasörün içeriği sistem tarafından otomatik olarak temizlenir. Bu yüzden burada önemli dosya saklamamalısınız!
+Sistemin çalışması için gerekli temel komutlar burada bulunur.
 
+Hem **root** hem de normal kullanıcılar bu komutları çalıştırabilir.
 
-/usr Dizini
-kullanıcıların kullanmış oluğu programların çoğu bu dizin altında bulunur
+### Örnek Komutlar
 
-wireshark,nmap,swlmapo, mozilla
+```bash
+ls
+cp
+mv
+cat
+pwd
+mkdir
+rm
+echo
+```
 
+---
 
-/lib , /lib32 , /lib64 Dizinleri
-Uygulamaların çalışması için gereken paylaşımlı kütüphane dosyalarını (.so uzantılı dosyalar) içerir.
-apt,hashcat,php,postgrsql gibi uygulamaların kütüphanelerinin bulunduğu dosyadır.
+# 📌 /sbin
 
-/dev
-Linux’un en ilginç özelliklerinden biri burada gizlidir: “Her şey bir dosyadır.” Ekran kartınız, klavyeniz, hard diskiniz burada bir dosya olarak temsil edilir.
+## Sistem Yönetim Komutları
 
-/proc ve /sys
-Bunlar aslında fiziksel olarak diskte yer kaplamayan “sanal” dosya sistemleridir. Bilgisayar çalıştığı anda çekirdek (kernel) tarafından oluşturulurlar.
+**sbin**, **System Binaries** anlamına gelir.
 
-/proc: Çalışan işlemler (processes) ve işlemci bilgileri hakkında canlı veri sunar.
-/sys: Donanım sürücüleri ve çekirdek ayarlarıyla ilgili etkileşim kurmanızı sağlar.
+Buradaki komutlar sistem yönetimi içindir ve çoğu root yetkisi gerektirir.
 
-/mnt ve /media
-Harici cihazların sisteme dahil edildiği noktalardır.
+### Örnek Komutlar
 
-/media: Pardus gibi modern dağıtımlar, taktığınız USB belleği veya CD’yi otomatik olarak buraya bağlar. (/media/kullanici/usb-bellek).
-/mnt: Sistem yöneticisinin manuel olarak geçici bir dosya sistemini bağladığı (mount) yerdir.
+```bash
+iptables
+fdisk
+reboot
+shutdown
+mkfs
+ifconfig
+```
 
-/opt
-Sistem paket yöneticisi (apt) dışındaki yöntemlerle kurulan (örneğin Google Chrome, Discord veya bazı ticari yazılımlar) büyük paketlerin kendi dosyalarını toplu halde sakladığı yerdir.
+---
 
+# 📌 /etc
 
-/boot
-Bilgisayarın açılması (boot) için gereken dosyaları içerir. Linux çekirdeği (vmlinuz) ve açılış yöneticisi olan GRUB buradadır. Bu klasördeki dosyaların silinmesi, Pardus’un bir daha açılmamasına neden olur
+## Yapılandırma Dosyaları
 
+Sistemin ve uygulamaların yapılandırma dosyaları burada bulunur.
+
+### Örnekler
+
+```text
+/etc/passwd
+```
+
+Kullanıcı hesap bilgileri
+
+```text
+/etc/shadow
+```
+
+Şifrelerin hash değerleri
+
+```text
+/etc/ssh/ssh_config
+```
+
+SSH istemci yapılandırması
+
+```text
+/etc/ssh/sshd_config
+```
+
+SSH sunucu yapılandırması
+
+```text
+/etc/dhcp/dhclient-exit-hooks.d/
+```
+
+DHCP istemcisi için çalışan scriptler
+
+> **Not:** DHCP'nin ana yapılandırma dosyası dağıtıma göre farklı olabilir.
+
+---
+
+# 📌 /root
+
+## Root Kullanıcısının Ev Dizini
+
+Normal kullanıcıların ev dizini `/home` altında bulunurken;
+
+Root kullanıcısının ev dizini doğrudan
+
+```text
+/root
+```
+
+dizinidir.
+
+Diğer kullanıcılardan güvenlik amacıyla ayrılmıştır.
+
+---
+
+# 📌 /home
+
+## Kullanıcı Ev Dizinleri
+
+Sistemde oluşturulan kullanıcıların kişisel dosyaları burada tutulur.
+
+Örnek:
+
+```text
+/home/ersin
+/home/ahmet
+```
+
+Belgeler, Masaüstü, İndirilenler gibi klasörler burada bulunur.
+
+---
+
+# 📌 /var
+
+## Değişken Dosyalar
+
+**Variable** kelimesinden gelir.
+
+Sistem çalıştıkça sürekli değişen dosyalar burada tutulur.
+
+### Önemli Alt Dizinler
+
+```text
+/var/log
+```
+
+Sistem log dosyaları
+
+```text
+/var/mail
+```
+
+E-postalar
+
+```text
+/var/www
+```
+
+Web sunucusu dosyaları (Apache, Nginx vb.)
+
+---
+
+# 📌 /tmp
+
+## Geçici Dosyalar
+
+Programların geçici olarak oluşturduğu dosyalar burada tutulur.
+
+- Genellikle sistem yeniden başladığında temizlenir.
+- Önemli dosyalar burada saklanmamalıdır.
+
+---
+
+# 📌 /usr
+
+## Kullanıcı Programları
+
+Kurulu uygulamaların büyük bir kısmı burada bulunur.
+
+Örneğin:
+
+- Wireshark
+- Nmap
+- SQLMap
+- Firefox
+- Vim
+
+Önemli alt dizinler:
+
+```text
+/usr/bin
+```
+
+Kullanıcı komutları
+
+```text
+/usr/lib
+```
+
+Program kütüphaneleri
+
+```text
+/usr/share
+```
+
+Dokümantasyon ve ortak dosyalar
+
+---
+
+# 📌 /lib - /lib32 - /lib64
+
+## Paylaşımlı Kütüphaneler
+
+Programların çalışması için gerekli olan ortak kütüphane dosyaları burada bulunur.
+
+Linux'taki `.dll` benzeri dosyalardır.
+
+Genellikle
+
+```text
+.so
+```
+
+uzantısına sahiptirler.
+
+Örneğin;
+
+- PHP
+- PostgreSQL
+- apt
+- Hashcat
+
+gibi uygulamalar bu kütüphaneleri kullanır.
+
+---
+
+# 📌 /dev
+
+## Aygıt Dosyaları
+
+Linux'ta **her şey bir dosyadır** mantığı burada görülür.
+
+Donanımlar dosya olarak temsil edilir.
+
+Örnekler:
+
+```text
+/dev/sda
+```
+
+Disk
+
+```text
+/dev/null
+```
+
+Boş aygıt
+
+```text
+/dev/random
+```
+
+Rastgele sayı üreticisi
+
+```text
+/dev/tty
+```
+
+Terminal
+
+---
+
+# 📌 /proc
+
+## İşlem Bilgileri
+
+Diskte fiziksel olarak bulunmayan sanal dosya sistemidir.
+
+Kernel tarafından oluşturulur.
+
+İçerisinde;
+
+- çalışan işlemler
+- işlemci bilgileri
+- RAM kullanımı
+- sistem durumu
+
+gibi bilgiler bulunur.
+
+---
+
+# 📌 /sys
+
+## Kernel ve Donanım Bilgileri
+
+Yine sanal dosya sistemidir.
+
+Donanım sürücüleri ve kernel ayarları ile etkileşim kurmayı sağlar.
+
+---
+
+# 📌 /mnt
+
+## Manuel Bağlama Noktası
+
+Sistem yöneticilerinin geçici olarak disk veya dosya sistemlerini bağlamak için kullandığı dizindir.
+
+Örnek:
+
+```bash
+mount /dev/sdb1 /mnt
+```
+
+---
+
+# 📌 /media
+
+## Otomatik Bağlama Noktası
+
+USB bellek, CD/DVD gibi harici aygıtlar otomatik olarak burada bağlanır.
+
+Örnek:
+
+```text
+/media/ersin/USB
+```
+
+---
+
+# 📌 /opt
+
+## Üçüncü Parti Yazılımlar
+
+APT dışındaki yöntemlerle kurulan büyük uygulamalar burada tutulur.
+
+Örneğin;
+
+- Google Chrome
+- Discord
+- VMware
+- IntelliJ IDEA
+
+---
+
+# 📌 /boot
+
+## Açılış Dosyaları
+
+Sistemin açılması için gerekli dosyalar burada bulunur.
+
+İçerisinde;
+
+- Linux Kernel (`vmlinuz`)
+- GRUB Bootloader
+- initramfs
+
+dosyaları yer alır.
+
+> ⚠️ Bu dizindeki kritik dosyaların silinmesi sistemin açılmamasına neden olabilir.
+
+---
+
+# 📚 Özet Tablosu
+
+| Dizin | Açıklama |
+|--------|----------|
+| `/` | Kök dizin |
+| `/bin` | Temel kullanıcı komutları |
+| `/sbin` | Sistem yönetim komutları |
+| `/etc` | Yapılandırma dosyaları |
+| `/root` | Root kullanıcısının ev dizini |
+| `/home` | Kullanıcı ev dizinleri |
+| `/var` | Loglar ve değişken dosyalar |
+| `/tmp` | Geçici dosyalar |
+| `/usr` | Kullanıcı uygulamaları |
+| `/lib` | Paylaşımlı kütüphaneler |
+| `/dev` | Donanım dosyaları |
+| `/proc` | Çalışan işlemler |
+| `/sys` | Kernel ve donanım bilgileri |
+| `/mnt` | Manuel mount noktası |
+| `/media` | Otomatik mount noktası |
+| `/opt` | Üçüncü parti yazılımlar |
+| `/boot` | Açılış dosyaları |
