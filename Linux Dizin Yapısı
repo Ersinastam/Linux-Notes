@@ -1,0 +1,11 @@
+## Kök Dizin
+Linux dizin yapısının en tepesinde sadece bir eğik çizgi (/) bulunur
+Buna Root (Kök) dizini denir.
+Linuxtaki tüm dosyaları içersinde bulundurur.
+
+##  /bin Dizini
+“Binaries” kelimesinin kısaltması olan bu dizin, sistemin çalışması için olmazsa olmaz olan temel komut dosyalarını içerir.Hem sistem yöneticisi (root) hem de normal kullanıcılar buradaki komutları kullanabilir.
+'ls' ,'cp ' ,'mv ' ,'cat' gibi hem root hem de diğer kullanıcıların çalıştırabileceği komutların bulunduran dosyadır.
+
+##  /sbin Dizini
+“System Binaries” anlamına gelir. /bin dizininden farkı, buradaki komutların genellikle sadece root (sistem yöneticisi) yetkisiyle çalıştırılması gereken, sistemi yapılandıran kritik araçlar olmasıdır.
