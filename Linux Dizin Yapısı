@@ -9,3 +9,62 @@ Linuxtaki tüm dosyaları içersinde bulundurur.
 
 ##  /sbin Dizini
 “System Binaries” anlamına gelir. /bin dizininden farkı, buradaki komutların genellikle sadece root (sistem yöneticisi) yetkisiyle çalıştırılması gereken, sistemi yapılandıran kritik araçlar olmasıdır.
+
+iptables (güvenlik duvarı), fdisk (disk bölümlendirme), reboot (yeniden başlatma) gibi diğer kullanıcıların çalıştıramayacağı komutları barındırır.
+
+##  /etc Dizini
+sistem yapılandırma dosyalarını içeren dizindir.
+
+/etc/shadow = Kullanıcı şifrelerinin bulunduğu kısım
+/etc/ssh/ssh_config = ssh konfigurasyonunun olduğ dosyadır.
+/etc/dhcp/dhcpclient-exit-hooks.d = dhcp Konfigurasyonunun olduğ dosyadır.
+
+/root Dizini
+Normal kullanıcıların evi /home altındayken, sistemin en yetkili kullanıcısı olan root kullanıcısının evi doğrudan kök dizin altındaki /root klasörüdür. Güvenlik gerekçesiyle diğer kullanıcılardan tamamen izole edilmiştir.
+
+/var Dizini
+Variable” (Değişken) kelimesinden gelir. Sistem çalıştıkça boyutu değişen, sürekli veri eklenen dosyalar burada tutulur.
+
+/var/log: Sistemin tüm günlük (log) kayıtları. (Hata analizi için ilk bakılan yer).
+/var/mail: Gelen e-postalar.
+/var/www: Web sunucusu dosyaları.
+
+
+/tmp Dizini
+
+istemin veya uygulamaların geçici olarak ihtiyaç duyduğu dosyaları sakladığı yerdir.
+Genellikle bilgisayar her yeniden başlatıldığında bu klasörün içeriği sistem tarafından otomatik olarak temizlenir. Bu yüzden burada önemli dosya saklamamalısınız!
+
+
+/usr Dizini
+kullanıcıların kullanmış oluğu programların çoğu bu dizin altında bulunur
+
+wireshark,nmap,swlmapo, mozilla
+
+
+/lib , /lib32 , /lib64 Dizinleri
+Uygulamaların çalışması için gereken paylaşımlı kütüphane dosyalarını (.so uzantılı dosyalar) içerir.
+apt,hashcat,php,postgrsql gibi uygulamaların kütüphanelerinin bulunduğu dosyadır.
+
+/dev
+Linux’un en ilginç özelliklerinden biri burada gizlidir: “Her şey bir dosyadır.” Ekran kartınız, klavyeniz, hard diskiniz burada bir dosya olarak temsil edilir.
+
+/proc ve /sys
+Bunlar aslında fiziksel olarak diskte yer kaplamayan “sanal” dosya sistemleridir. Bilgisayar çalıştığı anda çekirdek (kernel) tarafından oluşturulurlar.
+
+/proc: Çalışan işlemler (processes) ve işlemci bilgileri hakkında canlı veri sunar.
+/sys: Donanım sürücüleri ve çekirdek ayarlarıyla ilgili etkileşim kurmanızı sağlar.
+
+/mnt ve /media
+Harici cihazların sisteme dahil edildiği noktalardır.
+
+/media: Pardus gibi modern dağıtımlar, taktığınız USB belleği veya CD’yi otomatik olarak buraya bağlar. (/media/kullanici/usb-bellek).
+/mnt: Sistem yöneticisinin manuel olarak geçici bir dosya sistemini bağladığı (mount) yerdir.
+
+/opt
+Sistem paket yöneticisi (apt) dışındaki yöntemlerle kurulan (örneğin Google Chrome, Discord veya bazı ticari yazılımlar) büyük paketlerin kendi dosyalarını toplu halde sakladığı yerdir.
+
+
+/boot
+Bilgisayarın açılması (boot) için gereken dosyaları içerir. Linux çekirdeği (vmlinuz) ve açılış yöneticisi olan GRUB buradadır. Bu klasördeki dosyaların silinmesi, Pardus’un bir daha açılmamasına neden olur
+
