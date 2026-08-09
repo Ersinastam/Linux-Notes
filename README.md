@@ -164,28 +164,3 @@ Linux'ta dosyaların arşivlenmesi ve sıkıştırılması ile ilgili temel işl
 📖 [Arşivleme ve Yedekleme](Arşivleme_Ve_Yedekleme.md)
 
 ---
-
-## 🧠 Öğrenme Haritası
-
-Linux öğrenme sürecimde konuları temel seviyeden başlayarak ilerletiyorum:
-
-```text
-Linux Dizin Yapısı
-        │
-        ▼
-Kullanıcı Yönetimi
-        │
-        ▼
-Kullanıcı Yetkilendirme
-        │
-        ▼
-Process Yönetimi
-        │
-        ▼
-Servis Yönetimi
-        │
-        ▼
-Disk Yönetimi
-        │
-        ▼
-Arşivleme ve Yedekleme
